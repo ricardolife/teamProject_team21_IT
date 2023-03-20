@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+{% extends 'rater/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Homepage
+{% endblock %}
+<!-- Bootstrap core CSS -->
+<link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<!-- Custom styles for this template -->
+<link href="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.css" rel="stylesheet">
+<!-- use our own css file -->
+<link rel="icon shortcut" href="./img/favicon.ico">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
+
+{% block body_block %}
+<header id="header" class="jumbotron text-center text-white bg-dark">
+    <form class="form-inline" id="user-form" method="post" action="{% url 'rater:search' %}">
+        {% csrf_token %}
+    <div class="container">
+        <br>
+        <br>
+        <h1>Book Rating</h1>
+        
+        <div class="input-group mb-3">
+            <input type="text" name="query" id="query" value="{{ query }}" class="form-control" placeholder="Enter book name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Search
+                </button>
+            </div>
+        </div>
+    
+    </div>
+</form>
+</header>
+
+
+
+<div class="container">
+    <section id="introSection" class="py-5">
+        <form id="targetForm" method="post" action="{% url 'rater:search' %}">
+            {% csrf_token %}
+
+        <div class="container">
+            <input type="text" id="submitValue" name="query" hidden></input>
+            <!-- 修正排版為三項排一排 -->
+            <div class="row">
+                    <div class="col-md-4">
+                        <div class="intro-box" id="19">
+                            <div class="imagepart">
+                                <div class="icon py-5">
+                                    <i class="fas fa-paper-plane fa-5x" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            {% comment %} <input type="text" name="query" value="1984" hidden></input> {% endcomment %}
+                            <h3 class="text-secondary" >1984</h3></input>
+                            <div class="intro-line bg-primary"></div>
+                            <p>
+                                A dystopian novel that explores the dangers of totalitarianism and government control</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="col-md-4">
+                    <div class="intro-box" id="Gatsby">
+                        <div class="imagepart2">
+                            <div class="icon py-5">
+                                <i class="fas fa-paper-plane fa-5x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        {% comment %} <input type="text" name="query" value="The Great Gatsby" hidden></input> {% endcomment %}
+                        <h3 class="text-secondary">The Great Gatsby</h3>
+                        <div class="intro-line bg-primary"></div>
+                        <p>A classic novel that tells the story of a man's obsession with the past and his pursuit of the American Dream.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box" id="Kill">
+                        <div class="imagepart3">
+                            <div class="icon py-5">
+                                <i class="fas fa-paper-plane fa-5x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        {% comment %} <input type="text" name="query" value="To Kill a Mockingbird" hidden></input> {% endcomment %}
+                        <h3 class="text-secondary">To Kill a Mockingbird</h3>
+                        <div class="intro-line bg-primary"></div>
+                        <p>A coming-of-age novel that addresses themes of racism and injustice in the American South</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="intro-box" id="Hitch">
+                        <div class="imagepart4">
+                            <div class="icon py-5">
+                                <i class="fas fa-paper-plane fa-5x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        {% comment %} <input type="text" name="query" value="Hitchhiker's Guide to the Galaxy" hidden></input> {% endcomment %}
+                        <h3 class="text-secondary">The Hitchhiker's Guide to the Galaxy</h3>
+                        <div class="intro-line bg-primary"></div>
+                        <p>A humorous science fiction novel that follows the misadventures of an unwitting human and his alien friend as they travel through space</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box" id="Catcher">
+                        <div class="imagepart5">
+                            <div class="icon py-5">
+                                <i class="fas fa-paper-plane fa-5x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        {% comment %} <input type="text" name="query" value="The Catcher in the Rye" hidden></input> {% endcomment %}
+                        <h3 class="text-secondary">The Catcher in the Rye</h3>
+                        <div class="intro-line bg-primary"></div>
+                        <p>A novel that follows the journey of a teenage boy who struggles with alienation and identity</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box" id="Lord">
+                        <div class="imagepart6">
+                            <div class="icon py-5">
+                                <i class="fas fa-paper-plane fa-5x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        {% comment %} <input type="text" name="query" value="The Lord of the Rings" hidden></input> {% endcomment %}
+                        <h3 class="text-secondary">The Lord of the Rings</h3>
+                        <div class="intro-line bg-primary"></div>
+                        <p>A fantasy epic that chronicles the journey of hobbit Frodo Baggins as he attempts to destroy the powerful One Ring and save Middle-earth</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </form>
+    </section>
+</div>
+
+<div class="jumbotron p-4">
+    <div class="container">
+        <h5 class="jumbotron-heading">This is Book Rating web</h5>
+        <div>
+            <h6 class="h6">
+            {% if user.is_authenticated %}
+                Hello {{ user.username }} , please click a book rate page to write a reivew!
+            {% else %}
+                Hello there! In order to write reviews, please log in or sign up.
+            {% endif %}
+            </h6>
+            <strong>{{ boldmessage }}</strong>
+        </div>
+    </div>
+</div>
+{% comment %} {% csrf_token %} {% endcomment %}
+{% block javascript %}
+        <script src="{% static 'js/jquery-3.6.0.min.js' %}" crossorigin="anonymous"></script>
+        <script src="{% static 'js/index.js' %}" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% endblock %}

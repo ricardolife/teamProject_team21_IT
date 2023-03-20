@@ -1,0 +1,71 @@
+{% extends 'rater/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Register page
+{% endblock %}
+
+{% block style %}
+<link href="{% static 'css/login.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body_block %}
+        
+        <div class="container">
+                <div class="form-group" >
+                    {% if registered %}
+                    <strong class="h1 text-center" >Thank you for registering!</strong><br/>
+                    {% else %}
+                    <strong class="h1 text-center">Register page</strong><br />
+                    {%  endif %}
+                    
+                    <form role="form"  method="post" action="{% url 'rater:register' %}" >
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <p class="required">
+                                <label class="required" for="id_username" >Username: <span style="color: red;">*</span></label>
+                                <input class="form-control" id="id_username" maxlength="30" name="username" type="text" />
+                                <span class="helptext" id="helptextUser">
+                                   * Required field.
+                                </span>
+                            </p>
+                            <p class="required">
+                                <label class="required" for="id_email">Email: <span style="color: red;">*&nbsp; &nbsp; &nbsp; &nbsp; </span></label>
+                                <input class="form-control" id="id_email" name="email" type="email" />
+                                <span class="helptext" id="helptextEmail">
+                                    * Required field.
+                                </span>
+                                <span class="helptext" id="helptextEmail2">
+                                    Please Enter the correct email format.
+                                </span>
+                            </p>
+                            <p class="required">
+                                <label class="required" for="id_password1">Password: <span style="color: red;">*</span></label>
+                                <input class="form-control" id="id_password1" name="password" type="password" />
+                                <span class="helptext" id="helptextPassword1">
+                                    * Required field.
+                                </span>
+                                
+                            </p>
+                            <p class="required">
+                                <label class="required" for="id_password2">Password confirmation: <span style="color: red;">*</span></label>
+                                <input class="form-control" id="id_password2" name="password2" type="password" />
+                                <span class="helptext" id="helptextPassword2">
+                                    * Required field.
+                                </span>
+                                <span class="helptext" id="helptextPassword3">
+                                    Please enter the password you previously used for verification purposes.
+                                </span>
+                            </p>
+                        </div>
+                        <button type="submit" id="submit" name="submit" class="btn">Submit</button>
+                    
+                    </form>
+                    
+                </div>
+        </div>
+        {% block javascript %}
+        <script src="{% static 'js/jquery-3.6.0.min.js' %}" crossorigin="anonymous"></script>
+        <script src="{% static 'js/login.js' %}" crossorigin="anonymous"></script>
+        {% endblock %}
+{% endblock %}

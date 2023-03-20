@@ -1,0 +1,31 @@
+{% extends 'rater/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Login
+{% endblock %}
+
+{% block style %}
+<link href="{% static 'css/login.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body_block %}
+        <br>
+        <br>
+        
+        <div class="container">
+            <strong class="h1 text-center">Please Login!</strong><br />
+            <form class="form-signin" id="login_form" method="post" action="{% url 'rater:login' %}">
+            {% csrf_token %}
+            <label class="text-only">Username: <label style="color: red;">*</label></label>
+            <input type="text" class="form-control"  name="username" value="" size="50" name="uname" required/>
+            <br />
+            <label class="text-only">Password: <label style="color: red;">*  </label></label>
+            <input type="password" name="password" value="" size="50" name="psw" required/>
+            <br />
+        
+            <button type="submit" class="btn">Sign in</button>
+            </form>
+        </div>
+        
+{% endblock %}
