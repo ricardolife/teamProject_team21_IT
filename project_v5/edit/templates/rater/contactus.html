@@ -1,0 +1,45 @@
+
+
+
+
+{% extends 'rater/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    ContactUs
+{% endblock %}
+
+{% block style %}
+<link href="{% static 'css/profile.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body_block %}
+<section class="section">
+        {% comment %} <div > {% endcomment %}
+            {% comment %} <br> {% endcomment %}
+            
+            <div class='center'>
+                <form id="user_form" method="post" action="{% url 'rater:getuserprofile' %}" enctype="multipart/form-data">
+                <h1 class="jumbotron-heading">Contact Us</h1>
+                <br>
+                <div>
+                    <p class='pText'>Author:</p>
+                    <p class='pText2'>Ashwin Krishnamurthi,  Ning An,Yaosheng Ye,Jiawei Liu,Kangheng Liang</p>
+
+                </div>
+                <div>
+                    <p class='pText'>Email:</p>
+                    <p class='pText2'>xxxxxx@student.gla.ac.uk.com</p>
+                </div>
+                <div>
+                <p class='pText'>Telephone: </p> <p class='pText2'>0xxx-xxx-xxx</p>
+                </div>
+                <div>
+                    <p class='pText'>Address: </p> <p class='pText2'>Hillhead,University of Glasgow, Glasgow</p>
+                </div>
+            </form>
+            </div>
+    </section>
+   
+
+{% endblock %}
